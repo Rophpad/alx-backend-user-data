@@ -8,7 +8,7 @@ def filter_datum(
         fields: List[str],
         redaction: str,
         message: str,
-        separator: st
+        separator: str
                 ) -> str:
     """Returns obfuscated log message"""
     for field in fields:
