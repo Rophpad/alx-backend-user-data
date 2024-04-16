@@ -3,8 +3,19 @@
 """
 
 from api.v1.auth.auth import Auth
+import base64
 
 
 class BasicAuth(Auth):
     """ class for Basic Authentification
     """
+    def extract_base64_authorization_header(
+            self, authorization_header: str
+    ) -> str:
+        """ Get encoded header
+        """
+        if (not authorization_header)\
+           or (not isinstance(authorization_header, str))\
+           or (authorization_header[0:6] != "Basic "):
+            return None
+        return authorization_header[6:]
