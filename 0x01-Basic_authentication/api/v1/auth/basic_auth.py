@@ -51,7 +51,7 @@ class BasicAuth(Auth):
            or (not isinstance(decoded_b64_auth, str))\
            or (':' not in decoded_b64_auth):
             return (None, None)
-        email, password = decoded_b64_auth.split(':')
+        email, password = decoded_b64_auth.split(':', 1)
         return (email, password)
 
     def user_object_from_credentials(
