@@ -34,7 +34,7 @@ def unauth_req() -> str:
     abort(401, description='Unauthorized')
 
 
-@app_views.route('/forbidden', methods=["GET"], stict_slashes=False)
+@app_views.route('/forbidden', methods=["GET"], strict_slashes=False)
 def forbid_req() -> str:
     """ Endpoint to handle
         forbidden request

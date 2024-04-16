@@ -29,7 +29,7 @@ def unauth_req(error) -> str:
 
 
 @app.errorhandler(403)
-def unauth_req(error) -> str:
+def forbid_req(error) -> str:
     """ Request forbidden
     """
     return jsonify({"error": "Forbidden"}), 403
