@@ -14,7 +14,7 @@ class Auth:
         """
         # if path and path[-1] != '/':
         #   path = path + '/'
-        if (not path) or (not excluded_paths) or path not in excluded_paths:
+        if (not path) or (not excluded_paths) or excluded_paths == []:
             return True
         if path in excluded_paths:
             return False
