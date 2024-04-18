@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Module of Users views
+""" Handle all routes for Session auth
 """
 import os
 from api.v1.views import app_views
@@ -9,7 +9,7 @@ from flask import jsonify, request
 
 @app_views.route('/auth_session/login', methods=['POST'], strict_slashes=False)
 def session_auth():
-    """_summary_
+    """ Session Auth route
     """
     email = request.form.get('email')
     password = request.form.get('password')
@@ -34,8 +34,7 @@ def session_auth():
 @app_views.route('/auth_session/logout',
                  methods=['DELETE'], strict_slashes=False)
 def logout():
-    """
-    for logging out user
+    """ for logging out user
     """
     from api.v1.app import auth
     if auth.destroy_session(request):
