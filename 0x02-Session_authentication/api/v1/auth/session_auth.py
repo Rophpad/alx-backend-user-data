@@ -9,7 +9,7 @@ class SessionAuth(Auth):
     """ Class to handle
         Session authentification
     """
-    self.user_id_by_session_id = {}
+    user_id_by_session_id = {}
     """
     def __init__(self):
         self.user_id_by_session_id = {}
