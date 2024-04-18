@@ -1,5 +1,5 @@
-#!/usr/bien/env python3
-""" Handle all routes for Session auth
+#!/usr/bin/env python3
+""" Module of Users views
 """
 import os
 from api.v1.views import app_views
@@ -9,7 +9,7 @@ from flask import jsonify, request
 
 @app_views.route('/auth_session/login', methods=['POST'], strict_slashes=False)
 def session_auth():
-    """ Session Auth route
+    """_summary_
     """
     email = request.form.get('email')
     password = request.form.get('password')
@@ -29,3 +29,15 @@ def session_auth():
             resp.set_cookie(session_name, session_id)
             return resp
     return jsonify({"error": "wrong password"}), 401
+
+
+@app_views.route('/auth_session/logout',
+                 methods=['DELETE'], strict_slashes=False)
+def logout():
+    """
+    for logging out user
+    """
+    from api.v1.app import auth
+    if auth.destroy_session(request):
+        return jsonify({}), 200
+    abort(404)
