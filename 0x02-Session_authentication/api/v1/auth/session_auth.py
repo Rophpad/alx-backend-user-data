@@ -3,8 +3,8 @@
 """
 from .auth import Auth
 
+
 class SessionAuth(Auth):
     """ Class to handle
         Session authentification
     """
-
